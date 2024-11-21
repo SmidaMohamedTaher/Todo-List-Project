@@ -14,15 +14,23 @@ public class TaskImpl implements Task{
         this.name = name;
         this.description = description;
         this.dueDate = dueDate ;
+        this.status = Complete.not_complated ;
     }
-    
-    public void edit(){
+
+    public void edit(TaskImpl task) {
+        this.name = task.name;
+        this.description = task.description;
+        this.dueDate = task.dueDate;
 
     }
-    public void delete(){
-
-    }
+//    public void delete(){
+//
+//    }
     public void markAsCompleted(){
+        this.status = Complete.complated ;
+    }
 
+    public void markAsAbandoned(){
+        this.status = Complete.abandoned ;
     }
 }
