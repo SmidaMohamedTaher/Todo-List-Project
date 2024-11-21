@@ -7,7 +7,15 @@ public class TaskImpl implements Task{
     private String name ;
     private String description ;
     private Date dueDate ;
+    private Complete status;
 
+    public TaskImpl(int id_T, String name, String description, Date dueDate) {
+        this.id_T = id_T ;
+        this.name = name;
+        this.description = description;
+        this.dueDate = dueDate ;
+    }
+    
     public void edit(){
 
     }
