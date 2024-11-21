@@ -33,4 +33,19 @@ public class TaskImpl implements Task{
     public void markAsAbandoned(){
         this.status = Complete.abandoned ;
     }
+
+    public int getId_T() {
+        return this.id_T;
+    }
+    public Date getDueDate() {
+        return this.dueDate;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
 }
