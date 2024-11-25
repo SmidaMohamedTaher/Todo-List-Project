@@ -9,18 +9,26 @@ public class TaskImpl implements Task{
     private Date dueDate ;
     private Complete status;
 
-    public TaskImpl(int id_T, String name, String description, Date dueDate) {
-        this.id_T = id_T ;
+    public TaskImpl(String name, String description, Date dueDate) {
+
         this.name = name;
         this.description = description;
         this.dueDate = dueDate ;
         this.status = Complete.not_complated ;
     }
 
-    public void edit(TaskImpl task) {
-        this.name = task.name;
-        this.description = task.description;
-        this.dueDate = task.dueDate;
+    public TaskImpl(int id_T, String name, String description, Date dueDate,Complete status) {
+        this.id_T = id_T ;
+        this.name = name;
+        this.description = description;
+        this.dueDate = dueDate ;
+        this.status = status ;
+    }
+
+    public void edit(Task task) {
+        this.name = task.getName();
+        this.description = task.getDescription();
+        this.dueDate = task.getDueDate();
 
     }
 //    public void delete(){
@@ -48,5 +56,9 @@ public class TaskImpl implements Task{
 
     public String getDescription() {
         return this.description;
+    }
+
+    public Complete getStatus() {
+        return this.status;
     }
 }

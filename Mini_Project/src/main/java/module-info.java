@@ -8,8 +8,9 @@ module com.example.mini_project {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
+
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.example.mini_project to javafx.fxml;
     exports com.example.mini_project;

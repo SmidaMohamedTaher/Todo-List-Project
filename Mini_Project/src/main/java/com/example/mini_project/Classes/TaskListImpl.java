@@ -1,27 +1,31 @@
 package com.example.mini_project.Classes;
 
+import com.example.mini_project.DataBases.DataBaseControler;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
 public class TaskListImpl extends TaskList{
-    private ArrayList<TaskImpl> tasks;
 
-    public  boolean addTask(TaskImpl task){
-       // MyDataBaseControler.add(task) ;
-        return this.tasks.add(task) ;
-        // push the tasks from database
+    private ArrayList<Task> tasks;
+
+    public  void addTask(Task task){
+        DataBaseControler.create(task) ;
+        update();
     }
 
-    public boolean deleteTask(TaskImpl task){
-       // MyDataBaseControler.delete(task) ;
-        return this.tasks.remove(task);
+    public void deleteTask(Task task){
+       DataBaseControler.deleteById(task.getId_T());
+       update();
     }
 
-
-    public void editTask(int idOfTask ,TaskImpl task){
-        for (TaskImpl task1 : this.tasks) {
+    public void editTask(int idOfTask ,Task task){
+        for (Task task1 : this.tasks) {
             if (task1.getId_T() == idOfTask) {
                 task1.edit(task);
+                DataBaseControler.update(task1);
+                update();
+                break;
             }
         }
     }
@@ -34,14 +38,20 @@ public class TaskListImpl extends TaskList{
         this.tasks.sort(Comparator.comparing(item -> item.getDueDate()));
     }
 
-    public ArrayList<TaskImpl> sherch(String word){
-        ArrayList<TaskImpl> Findtasks = new ArrayList<>();
-        for (TaskImpl task : this.tasks) {
+    public ArrayList<Task> sherch(String word){
+        ArrayList<Task> Findtasks = new ArrayList<>();
+        for (Task task : this.tasks) {
             if (task.getName().contains(word) || task.getDescription().contains(word)) {
                 Findtasks.add(task);
             }
         }
         
         return Findtasks;
+    }
+
+    public void update(){
+        this.tasks.removeAll(this.tasks);
+        this.tasks = DataBaseControler.findAll() ;
+        sortByDate();
     }
 }
