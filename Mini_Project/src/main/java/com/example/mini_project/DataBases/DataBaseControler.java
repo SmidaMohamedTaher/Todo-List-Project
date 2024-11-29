@@ -10,13 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.ArrayList;
 
 public class DataBaseControler {
 
@@ -33,7 +26,7 @@ public class DataBaseControler {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Task task = new TaskImpl(
-                        resultSet.getInt("id_T"),
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("description"),
                         resultSet.getDate("dueDate"),
@@ -59,13 +52,13 @@ public class DataBaseControler {
             return null;
         }
 
-        String query = "SELECT * FROM task WHERE id_T = ?;";
+        String query = "SELECT * FROM task WHERE id = ?;";
         try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return new TaskImpl(
-                        resultSet.getInt("id_T"),
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("description"),
                         resultSet.getDate("dueDate"),
@@ -115,7 +108,7 @@ public class DataBaseControler {
             return;
         }
 
-        String query = "UPDATE task SET name = ?, description = ?, dueDate = ?, status = ? WHERE id_T = ?;";
+        String query = "UPDATE task SET name = ?, description = ?, dueDate = ?, status = ? WHERE id = ?;";
         try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
             preparedStatement.setString(1, task.getName());
             preparedStatement.setString(2, task.getDescription());
@@ -160,7 +153,7 @@ public class DataBaseControler {
             return;
         }
 
-        String query = "DELETE FROM task WHERE id_T = ?;";
+        String query = "DELETE FROM task WHERE id = ?;";
         try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();

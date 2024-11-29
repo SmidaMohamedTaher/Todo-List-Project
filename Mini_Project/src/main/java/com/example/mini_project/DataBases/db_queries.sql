@@ -7,5 +7,5 @@ CREATE TABLE task (
                       name VARCHAR(30) NOT NULL ,
                       description VARCHAR(1000),
                       dueDate DATE,
-                      status ENUM('completed', 'not completed', 'abandoned') NOT NULL
+                      status ENUM('complated', 'not_complated', 'abandoned') NOT NULL
 );
