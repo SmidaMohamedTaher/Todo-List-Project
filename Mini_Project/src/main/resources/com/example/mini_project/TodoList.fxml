@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="AnchorPane" prefHeight="557.0" prefWidth="860.0" styleClass="mainFxmlClass" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mini_project.HelloController">
+<AnchorPane prefHeight="557.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.mini_project.HelloController">
     <stylesheets>
         <URL value="@todolist.css" />
     </stylesheets>
@@ -50,7 +50,7 @@
                                 <Insets left="30.0" right="30.0" />
                             </VBox.margin>
                             <children>
-                                <TextField alignment="CENTER" prefHeight="20.0" prefWidth="145.0" styleClass="transparent" stylesheets="@todolist.css" text="Type here to search">
+                                <TextField fx:id="sherchWord" alignment="CENTER" prefHeight="20.0" prefWidth="145.0" styleClass="transparent" stylesheets="@todolist.css" text="Type here to search">
                                     <HBox.margin>
                                         <Insets />
                                     </HBox.margin>
@@ -58,7 +58,7 @@
                                         <Font name="SansSerif Regular" size="12.0" />
                                     </font>
                                 </TextField>
-                                <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="70.0" styleClass="search-button" text="Search" textFill="WHITE" />
+                                <Button mnemonicParsing="false" onAction="#sherch" prefHeight="20.0" prefWidth="70.0" styleClass="search-button" text="Search" textFill="WHITE" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="35.0" prefWidth="287.0" VBox.vgrow="ALWAYS">
@@ -95,7 +95,7 @@
                                         <Insets />
                                     </opaqueInsets>
                                     <children>
-                                        <TextField alignment="CENTER" prefHeight="20.0" prefWidth="145.0" promptText="Task name " styleClass="transparent" stylesheets="@todolist.css" text="Task name ">
+                                        <TextField fx:id="taskName" alignment="CENTER" prefHeight="20.0" prefWidth="145.0" promptText="Task name " styleClass="transparent" stylesheets="@todolist.css" text="Task name ">
                                             <HBox.margin>
                                                 <Insets />
                                             </HBox.margin>
@@ -117,7 +117,7 @@
                                         <Insets top="20.0" />
                                     </VBox.margin>
                                     <children>
-                                        <TextArea blendMode="SOFT_LIGHT" cache="true" prefHeight="163.0" prefWidth="187.0" promptText="description ..." styleClass="shadow">
+                                        <TextArea fx:id="taskDescription" blendMode="SOFT_LIGHT" cache="true" prefHeight="163.0" prefWidth="187.0" promptText="description ..." styleClass="shadow">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
@@ -132,7 +132,7 @@
                                         <Insets left="5.0" right="5.0" top="15.0" />
                                     </VBox.margin>
                                     <children>
-                                        <DatePicker blendMode="SOFT_LIGHT" cache="true" cacheHint="ROTATE" prefHeight="58.0" prefWidth="174.0" styleClass="transparent" HBox.hgrow="ALWAYS">
+                                        <DatePicker fx:id="taskDate" blendMode="SOFT_LIGHT" cache="true" cacheHint="ROTATE" prefHeight="58.0" prefWidth="174.0" styleClass="transparent" HBox.hgrow="ALWAYS">
                                             <HBox.margin>
                                                 <Insets bottom="17.0" />
                                             </HBox.margin>
@@ -163,7 +163,7 @@
                                 </HBox>
                                 <HBox alignment="CENTER" prefHeight="53.0" prefWidth="227.0" VBox.vgrow="ALWAYS">
                                     <children>
-                                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="36.0" prefWidth="101.0" styleClass="save-button" text="Save" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#addTask" prefHeight="36.0" prefWidth="101.0" styleClass="save-button" text="Save" textFill="WHITE" HBox.hgrow="ALWAYS">
                                             <font>
                                                 <Font name="SansSerif Regular" size="15.0" />
                                             </font>
@@ -231,7 +231,7 @@
                                         <Insets />
                                     </HBox.margin>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="236.0" text="DueDate" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="108.0" text="DueDate" textFill="WHITE" HBox.hgrow="ALWAYS">
                                     <font>
                                         <Font name="SansSerif Regular" size="12.0" />
                                     </font>
@@ -239,7 +239,7 @@
                                         <Insets />
                                     </HBox.margin>
                                 </Label>
-                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="192.0" text="Status" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="159.0" text="Status" textFill="WHITE" HBox.hgrow="ALWAYS">
                                     <font>
                                         <Font name="SansSerif Regular" size="12.0" />
                                     </font>
@@ -249,7 +249,7 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <VBox prefHeight="331.0" prefWidth="548.0" style="-fx-background-color: #232323; -fx-background-radius: 2em;" VBox.vgrow="ALWAYS">
+                        <VBox fx:id="ListOfTaskes" prefHeight="331.0" prefWidth="548.0" style="-fx-background-color: #232323; -fx-background-radius: 2em;" styleClass="VboxList" VBox.vgrow="ALWAYS">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                             </VBox.margin>
@@ -500,4 +500,4 @@
             </right>
         </BorderPane>
     </children>
-</fx:root>
+</AnchorPane>

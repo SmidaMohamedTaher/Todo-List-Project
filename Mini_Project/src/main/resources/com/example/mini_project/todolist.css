@@ -1,3 +1,14 @@
+.VboxList HBox{
+    -fx-background-color :  #505050;
+    -fx-background-radius :  2em;
+}
+
+.VboxList Button{
+    -fx-background-color: #c2562e;
+    -fx-background-radius: 30;
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
 .search-box{
 
     -fx-background-color: #272727;
@@ -5,6 +16,7 @@
 }
 .transparent{
     -fx-background-color: rgba(0,0,0,0);
+    -fx-text-fill: white;
 }
 .search-button{
     -fx-background-color: #c2562e;
@@ -36,10 +48,4 @@
 .not-complited-button{
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 30;
-}
-FFFF
-
-
-.mainFxmlClass {
-
 }

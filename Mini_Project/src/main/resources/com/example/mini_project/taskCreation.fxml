@@ -5,25 +5,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="650.0" style="-fx-background-color: #505050; -fx-background-radius: 2em;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="task_instance" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="533.0" style="-fx-background-color: #505050; -fx-background-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="149.0" text="Task1" textFill="WHITE">
+        <Label fx:id="taskLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="149.0" text="Task1" textFill="WHITE">
             <font>
                 <Font name="SansSerif Regular" size="15.0" />
             </font>
         </Label>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="235.0" text="Description1..." textFill="WHITE">
+        <Label fx:id="descriptionLable" alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="149.0" text="Description1..." textFill="WHITE">
             <font>
                 <Font name="SansSerif Regular" size="15.0" />
             </font>
         </Label>
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="140.0" text="dd/mm/yyyy" textFill="WHITE">
+        <Label fx:id="DateLable" alignment="CENTER" contentDisplay="CENTER" prefHeight="53.0" prefWidth="115.0" text="dd/mm/yyyy" textFill="WHITE">
             <font>
                 <Font name="SansSerif Regular" size="15.0" />
             </font>
         </Label>
-        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="117.0" styleClass="search-button" stylesheets="@todolist.css" text="Complited" textFill="WHITE">
+        <Button fx:id="status" mnemonicParsing="false" prefHeight="34.0" prefWidth="117.0" styleClass="search-button" stylesheets="@todolist.css" text="Complited" textFill="WHITE">
             <font>
                 <Font name="SansSerif Italic" size="12.0" />
             </font>
