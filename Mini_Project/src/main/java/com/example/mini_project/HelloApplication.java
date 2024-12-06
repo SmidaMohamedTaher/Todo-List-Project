@@ -14,7 +14,6 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("TodoList.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Todo List");
-
         stage.setScene(scene);
         stage.show();
     }

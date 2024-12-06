@@ -11,6 +11,7 @@ public class TaskListImpl extends TaskList{
 
     public TaskListImpl() {
         this.tasks = new ArrayList<Task>();
+        update();
     }
 
     public  void addTask(Task task){
@@ -34,8 +35,8 @@ public class TaskListImpl extends TaskList{
         }
     }
 
-    public void displayTasks(){
-
+    public ArrayList<Task> displayTasks(){
+        return this.tasks ;
     }
 
     public void sortByDate(){
@@ -54,7 +55,7 @@ public class TaskListImpl extends TaskList{
     }
 
     public void update(){
-        this.tasks.removeAll(this.tasks);
+      //  this.tasks.removeAll(this.tasks);
         this.tasks = DataBaseControler.findAll() ;
         sortByDate();
 
